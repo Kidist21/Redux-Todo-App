@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../features/auth/authSlice";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -99,6 +100,15 @@ const Register = () => {
             Register
           </button>
         </form>
+        <p class="text-gray-700">
+          Already have an account?
+          <Link
+            to="/login"
+            className="text-blue-500 hover:text-blue-700 font-semibold transition-colors duration-300"
+          >
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

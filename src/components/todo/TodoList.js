@@ -51,7 +51,7 @@ function TodoList() {
       <div className="flex justify-end">
         <button
           onClick={handleLogout}
-          className=" bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 mt-4"
+          className="bg-gray-100 text-blue-500 py-2 px-4 mt-4 rounded-lg hover:text-blue-700 font-semibold transition-colors duration-300"
         >
           Logout
         </button>

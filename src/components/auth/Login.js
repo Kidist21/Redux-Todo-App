@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../features/auth/authSlice";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -93,6 +93,15 @@ const Login = () => {
             Login
           </button>
         </form>
+        <p class="text-gray-700">
+          Don't have an account?
+          <Link
+            to="/register"
+            className="text-blue-500 hover:text-blue-700 font-semibold transition-colors duration-300"
+          >
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );
