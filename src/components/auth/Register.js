@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../features/auth/authSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -9,6 +10,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const validateForm = () => {
     if (!username || !password || !confirmPassword) {
@@ -27,12 +29,14 @@ const Register = () => {
     return true;
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      dispatch(registerUser({ username, password }));
-      setUsername("");
-      setPassword("");
+      const result = await dispatch(registerUser({ username, password }));
+      if (result.meta.requestStatus === "fulfilled") {
+        toast.success("Registered successfully!");
+        navigate("/todos");
+      }
     }
   };
 
@@ -100,7 +104,7 @@ const Register = () => {
             Register
           </button>
         </form>
-        <p class="text-gray-700">
+        <p className="text-gray-700">
           Already have an account?
           <Link
             to="/login"

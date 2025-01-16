@@ -5,15 +5,34 @@ import axios from "axios";
 const BASE_URL = "http://localhost:5000/todos";
 
 // Async Thunks
-export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
-  const response = await axios.get(BASE_URL);
-  return response.data;
-});
+export const fetchTodos = createAsyncThunk(
+  "todos/fetchTodos",
+  async (_, { getState }) => {
+    const userId = localStorage.getItem("authToken"); // Get the user ID from the logged-in user
 
-export const addNewTodo = createAsyncThunk("todos/addNewTodo", async (todo) => {
-  const response = await axios.post(BASE_URL, todo);
-  return response.data;
-});
+    if (userId) {
+      const response = await axios.get(`${BASE_URL}?userId=${userId}`); // Fetch todos for the specific user
+      return response.data;
+    }
+
+    throw new Error("User not logged in");
+  }
+);
+
+export const addNewTodo = createAsyncThunk(
+  "todos/addNewTodo",
+  async (todo, { getState }) => {
+    const userId = localStorage.getItem("authToken"); // Get the user ID from the logged-in user
+
+    if (userId) {
+      const newTodo = { ...todo, userId }; // Attach the userId to the new todo
+      const response = await axios.post(BASE_URL, newTodo); // Send the request to add the new todo
+      return response.data;
+    }
+
+    throw new Error("User not logged in");
+  }
+);
 
 export const deleteTodo = createAsyncThunk("todos/deleteTodo", async (id) => {
   await axios.delete(`${BASE_URL}/${id}`);

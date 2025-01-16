@@ -93,7 +93,7 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p class="text-gray-700">
+        <p className="text-gray-700">
           Don't have an account?
           <Link
             to="/register"

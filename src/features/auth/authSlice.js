@@ -1,18 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { toast } from "react-toastify";
 
 const BASE_URL = "http://localhost:5000/users";
-
-// Simulating the creation of JWT token after login (in reality, this would come from your server)
-const generateToken = (user) => {
-  return `fake-jwt-token-for-${user.username}`; // Fake JWT Token
-};
 
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async (userData) => {
     const response = await axios.post(BASE_URL, userData);
+
+    // Simulating token generation and storing in localStorage
+    localStorage.setItem("authToken", userData.id);
+
     return response.data;
   }
 );
@@ -30,11 +28,9 @@ export const loginUser = createAsyncThunk(
       throw new Error("Invalid credentials");
     }
 
-    // Simulating token generation and storing in localStorage
-    const token = generateToken(user);
-    localStorage.setItem("authToken", token);
+    localStorage.setItem("authToken", user.id);
 
-    return { user, token };
+    return { user };
   }
 );
 
@@ -54,10 +50,9 @@ const authSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isAuthenticated = true;
-        toast.success("Registered successfully!");
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = action.payload.user;
         state.isAuthenticated = true;
         state.error = null;
       })
