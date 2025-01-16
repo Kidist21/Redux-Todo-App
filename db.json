@@ -1,0 +1,36 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "Learn Redux Toolkit",
+      "completed": false
+    },
+    {
+      "id": "8d5a",
+      "text": "tee",
+      "completed": true
+    },
+    {
+      "id": "e3ab",
+      "text": "why",
+      "completed": true
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "testuser",
+      "password": "testpassword"
+    },
+    {
+      "id": "5fe4",
+      "username": "nm",
+      "password": "nnmjkhghfgf"
+    },
+    {
+      "id": "9d12",
+      "username": "kk",
+      "password": "iopiop"
+    }
+  ]
+}
