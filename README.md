@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# 🚀 Todo App with Redux Toolkit and JWT Authentication
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a **full-stack Todo App** built with **React**, **Redux Toolkit**, **JSON Server**, and **JWT Authentication**. It demonstrates how to implement authentication and manage a Todo List using **Redux Toolkit** for state management and **JSON Server** as a mock backend.
 
-## Available Scripts
+## 📝 Features
 
-In the project directory, you can run:
+- **User Registration and Login**: Secure registration and login system with JWT token-based authentication.
+- **JWT Authentication**: Users must authenticate to access the Todo List. The token is stored in `localStorage`.
+- **Todo CRUD Operations**: Users can **Add**, **Toggle (Complete/Incomplete)**, **Delete**, and **Clear** their tasks.
+- **Protected Routes**: Only authenticated users can access the Todo List page.
+- **Responsive UI**: The app uses **Tailwind CSS** for a sleek and modern user interface.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
+Before you can run this application, make sure you have the following installed:
 
-### `npm test`
+- **Node.js** (>=14.0)
+- **npm** or **yarn** (npm comes with Node.js)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the Repository
 
-### `npm run build`
+Clone this repository to your local machine:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone [https://github.com/Kidist21/Redux-Todo-App.git]
+cd todo-app
+ ```
+### 2. Install dependencies:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3. Start the development server:
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Run the JSON Server:
+```bash
+npx json-server --watch db.json --port 5000
+```
 
-### `npm run eject`
+## 🛠️  How it Works
+- User can register and login to access the Todo List.
+- Todo List allows adding, toggling (complete/incomplete), removing, and clearing todos.
+- Protected Routes ensure access is only available to authenticated users.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## ⚙️ Key Technologies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React: A JavaScript library for building user interfaces.
+- Redux Toolkit: A Redux library that simplifies state management and reduces boilerplate code.
+- JSON Server: A simple tool for creating a mock REST API to simulate backend functionality.
+- JWT (JSON Web Token): A compact and self-contained way to securely transmit information between the client and server.
+- Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
